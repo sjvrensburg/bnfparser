@@ -12,5 +12,5 @@ License: GPL (>= 3)
 Encoding: UTF-8
 Imports: 
     Rcpp (>= 1.0.7)
-LinkingTo: Rcpp
+LinkingTo: Rcpp, BH
 RoxygenNote: 7.3.2

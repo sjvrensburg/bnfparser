@@ -11,43 +11,21 @@ Rcpp::Rostream<false>& Rcpp::Rcerr = Rcpp::Rcpp_cerr_get();
 #endif
 
 // parseBNF
-Rcpp::List parseBNF(const std::string& filepath, bool strict_mode, bool preserve_whitespace, bool allow_empty_rules, bool detect_left_recursion, bool allow_ebnf, bool validate_references);
-RcppExport SEXP _bnfparser_parseBNF(SEXP filepathSEXP, SEXP strict_modeSEXP, SEXP preserve_whitespaceSEXP, SEXP allow_empty_rulesSEXP, SEXP detect_left_recursionSEXP, SEXP allow_ebnfSEXP, SEXP validate_referencesSEXP) {
+Rcpp::List parseBNF(const std::string& input, bool strict_validation, bool strict_mode);
+RcppExport SEXP _bnfparser_parseBNF(SEXP inputSEXP, SEXP strict_validationSEXP, SEXP strict_modeSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
-    Rcpp::traits::input_parameter< const std::string& >::type filepath(filepathSEXP);
+    Rcpp::traits::input_parameter< const std::string& >::type input(inputSEXP);
+    Rcpp::traits::input_parameter< bool >::type strict_validation(strict_validationSEXP);
     Rcpp::traits::input_parameter< bool >::type strict_mode(strict_modeSEXP);
-    Rcpp::traits::input_parameter< bool >::type preserve_whitespace(preserve_whitespaceSEXP);
-    Rcpp::traits::input_parameter< bool >::type allow_empty_rules(allow_empty_rulesSEXP);
-    Rcpp::traits::input_parameter< bool >::type detect_left_recursion(detect_left_recursionSEXP);
-    Rcpp::traits::input_parameter< bool >::type allow_ebnf(allow_ebnfSEXP);
-    Rcpp::traits::input_parameter< bool >::type validate_references(validate_referencesSEXP);
-    rcpp_result_gen = Rcpp::wrap(parseBNF(filepath, strict_mode, preserve_whitespace, allow_empty_rules, detect_left_recursion, allow_ebnf, validate_references));
-    return rcpp_result_gen;
-END_RCPP
-}
-// parseBNFString
-Rcpp::List parseBNFString(const std::string& grammar_string, bool strict_mode, bool preserve_whitespace, bool allow_empty_rules, bool detect_left_recursion, bool allow_ebnf, bool validate_references);
-RcppExport SEXP _bnfparser_parseBNFString(SEXP grammar_stringSEXP, SEXP strict_modeSEXP, SEXP preserve_whitespaceSEXP, SEXP allow_empty_rulesSEXP, SEXP detect_left_recursionSEXP, SEXP allow_ebnfSEXP, SEXP validate_referencesSEXP) {
-BEGIN_RCPP
-    Rcpp::RObject rcpp_result_gen;
-    Rcpp::RNGScope rcpp_rngScope_gen;
-    Rcpp::traits::input_parameter< const std::string& >::type grammar_string(grammar_stringSEXP);
-    Rcpp::traits::input_parameter< bool >::type strict_mode(strict_modeSEXP);
-    Rcpp::traits::input_parameter< bool >::type preserve_whitespace(preserve_whitespaceSEXP);
-    Rcpp::traits::input_parameter< bool >::type allow_empty_rules(allow_empty_rulesSEXP);
-    Rcpp::traits::input_parameter< bool >::type detect_left_recursion(detect_left_recursionSEXP);
-    Rcpp::traits::input_parameter< bool >::type allow_ebnf(allow_ebnfSEXP);
-    Rcpp::traits::input_parameter< bool >::type validate_references(validate_referencesSEXP);
-    rcpp_result_gen = Rcpp::wrap(parseBNFString(grammar_string, strict_mode, preserve_whitespace, allow_empty_rules, detect_left_recursion, allow_ebnf, validate_references));
+    rcpp_result_gen = Rcpp::wrap(parseBNF(input, strict_validation, strict_mode));
     return rcpp_result_gen;
 END_RCPP
 }
 
 static const R_CallMethodDef CallEntries[] = {
-    {"_bnfparser_parseBNF", (DL_FUNC) &_bnfparser_parseBNF, 7},
-    {"_bnfparser_parseBNFString", (DL_FUNC) &_bnfparser_parseBNFString, 7},
+    {"_bnfparser_parseBNF", (DL_FUNC) &_bnfparser_parseBNF, 3},
     {NULL, NULL, 0}
 };
 
