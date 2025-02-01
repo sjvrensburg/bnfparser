@@ -1,0 +1,16 @@
+Package: bnfparser
+Type: Package
+Title: BNF Grammar Parser
+Version: 0.1.0
+Authors@R:
+    person("Stéfan", "Janse van Rensburg", , "stefanj@mandala.ac.za", role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0002-0749-2277"))
+Description: A parser for BNF (Backus-Naur Form) and EBNF (Extended BNF) grammars.
+    Provides functionality to parse grammar files and strings, with support for 
+    various grammar features and validation options.
+License: GPL (>= 3)
+Encoding: UTF-8
+Imports: 
+    Rcpp (>= 1.0.7)
+LinkingTo: Rcpp
+RoxygenNote: 7.3.2
